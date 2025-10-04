@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>ツクールMV用プラグイン置き場</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <style type="text/css">
+    <!--
+BODY {
+	margin: 80px;
+}
+    -->
+ </style>
+</head>
+<body>
+<p><strong>PD_8DirDash / 
+PD_AdjustCharaSprite<br>
+パターン配置解説<br>
+<br><font color="#800000">・まずはじめに</font></strong><br>
+PD_8DirDash及びPD_AdjustCharaSpriteでは<br>
+ファイル名の一番後ろのアンダーバーより後ろに特定の文字が含まれるかどうかでグラフィック変更を行うかを決定しています。<br>
+例：「Char01_<strong>QD</strong>.png」→斜め移動とダッシュ時の専用グラフィックが存在<br>
+<br>
+特定文字が含まれていても最後のアンダーバーより手前の場合は判定されません。<br>
+例：「Char01_D_<strong>Q</strong>
+  
+.png」→斜め移動の専用グラフィックが存在（「D」は判定に含まれない）<br><br>
+ファイル名によっては意図せず専用グラフィック判定に引っかかってしまう可能性があります。<br>
+判定文字はすべて大文字なので、なるべく判定部分以外で大文字アルファベットを使用しないようにしてください。<br>
+例：「Char01<strong>_D</strong>anger.png」→ダッシュ時の専用グラフィックが存在と誤判定される<br>
+例：「char01_danger.png」→誤判定されない<br>
+<br>
+
+<br><strong><font color="#800000">・8方向移動（PD_8DirDash）</font>
+<br></strong>
+ファイル名の末尾に「Q」が含まれる場合、歩行グラフィックセットの下半分が<br>
+歩行グラフィックの上半分の斜め移動グラフィックとして扱われます。<br>
+（画像の緑の部分）<br>
+
+<img border="0" alt="" src="img/gr01.png" width="640" height="422"><br>
+斜めグラフィックの配置はWOLF 
+RPGエディターと同様となっています。<br>
+テンキー表示で番号が若い順で覚えるとわかりやすいかもしれません。<br>
+1ファイルに配置できるキャラクターは4体になります。<br><br>
+
+<br>
+なお、ツクールの使用上エディタ上から下半分をイベントや主人公等の歩行グラフィックとして設定可能ですが<br>
+表示がおかしくなる可能性が高いため非推奨となっております。<br>
+これに関しては以降すべての特殊歩行グラフィックに関して共通です。<br>
+<br><strong><font color="#800000">・ダッシュ移動（PD_8DirDash）<br></font></strong>
+ファイル名の末尾に「D」が含まれる場合、右隣の歩行グラフィックが<br>
+ダッシュ時のグラフィックとして扱われます。<br>
+（画像の赤い部分）<br>
+<img border="0" alt="" src="img/gr02.png" width="640" height="422"><br>
+1ファイルに配置できるキャラクターは4体になります。<br>
+<br>
+<br>
+斜め移動と併用した場合はこのようになります。<br>
+（画像の緑の部分が斜め移動グラフィック、赤い部分がダッシュ用グラフィック、<br>
+重なっている部分は斜めダッシュグラフィック）<br>
+<img border="0" alt="" src="img/gr03.png" width="640" height="422"><br>
+1ファイルに配置できるキャラクターは2体になります。<br>
+<br><strong><font color="#800000">・フィールド用グラフィック（PD_AdjustCharaSprite）</font></strong>
+<br>
+ファイル名の末尾に「F」が含まれる場合、右隣の歩行グラフィックが<br>
+フィールド画面でのグラフィックとして扱われます。<br>
+（画像の青い部分）<br>
+<img border="0" alt="" src="img/gr04.png" width="640" height="422"><br>
+1ファイルに配置できるキャラクターは4体になります。<br>
+
+<br>
+ただし、<strong>「D」と同時に使用する場合は2列目がダッシュグラフィック、3列目がフィールドグラフィックになります。<br>
+</strong>また、4列目はフィールド上でダッシュした際のグラフィックになります。<br>
+<img border="0" alt="" src="img/gr05.png" width="640" height="422"><br>
+<br>
+すべてのグラフィック変更を併用する場合はこのようになります。<br>
+（右上からZ字型に、通常、ダッシュ、フィールド上、フィールド上でダッシュ、<br>
+斜め、斜めダッシュ、フィールド上斜め移動、フィールド上斜めダッシュ）<br>
+<img border="0" alt="" src="img/gr06.png" width="640" height="422"><font color="#c0c0c0"><br>
+</font>1ファイルに配置できるキャラクターは1体になります。<br>
+<font color="#c0c0c0">ここまで作る人居るんだろうか</font></p>
+
+
+</body>
+</html>
